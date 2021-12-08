@@ -22,6 +22,7 @@ fn part_2(fish: HashMap<u32, usize>) -> usize {
 fn mult_fish(mut fish: HashMap<u32, usize>, days: u32) -> usize {
     for i in 0..days {
         let x = fish.remove(&i);
+        x.unwrap_or(0);
         match x {
             Some(y) => {
                 *fish.entry(i + 7).or_insert(0) += y;
